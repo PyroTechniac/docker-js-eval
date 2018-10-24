@@ -41,6 +41,7 @@ const inspect = (val) => {
       maxArrayLength: 20,
       breakLength: Infinity,
       colors: false,
+      compact: false,
     });
   } catch {
     return '';
