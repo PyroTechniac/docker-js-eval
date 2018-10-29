@@ -10,10 +10,9 @@ module.exports = (code, environment = 'node-cjs', { timeout, cpus, memory, net =
     const name = `jseval-${crypto.randomBytes(8).toString('hex')}`;
     const args = ['run', '--rm', '-i', `--name=${name}`, `--net=${net}`, `-eJSEVAL_ENV=${environment}`];
 
-    let timer;
     if (timeout) {
       args.push(`-eJSEVAL_TIMEOUT=${timeout}`);
-      timer = setTimeout(() => {
+      setTimeout(() => {
         try {
           cp.execSync(`docker kill --signal=9 ${name}`);
           reject(new Error('timeout'));
@@ -45,12 +44,10 @@ module.exports = (code, environment = 'node-cjs', { timeout, cpus, memory, net =
     });
 
     proc.on('error', (e) => {
-      clearTimeout(timer);
       reject(e);
     });
 
     proc.on('exit', (status) => {
-      clearTimeout(timer);
       if (status !== 0) {
         reject(new Error(data));
       } else {
