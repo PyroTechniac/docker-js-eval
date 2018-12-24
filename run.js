@@ -17,8 +17,8 @@ const FILENAME = 'ecmabot.js';
 const isError = (e) => ObjectToString.call(e) === '[object Error]' || e instanceof Error;
 
 const decorateErrorStack = (err) => {
-  if (!(isError(err) && err.stack) ||
-    getHiddenValue(err, kDecoratedPrivateSymbolIndex) === true) {
+  if (!(isError(err) && err.stack)
+    || getHiddenValue(err, kDecoratedPrivateSymbolIndex) === true) {
     return;
   }
 

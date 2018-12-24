@@ -39,7 +39,7 @@ execSync('docker build -t devsnek/js-eval:latest .');
 
   equal(await jsEval('const x=do {1};x'), '1');
   try {
-    const x = await jsEval('const x=do {1};x', { stable: true });
+    await jsEval('const x=do {1};x', { stable: true });
     ok(false);
   } catch (e) {
     equal(`${e}`, 'Error: ecmabot.js:1\nconst x=do {1};x\n        ^^\n\nSyntaxError: Unexpected token do');
