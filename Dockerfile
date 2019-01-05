@@ -1,4 +1,4 @@
-FROM mhart/alpine-node
+FROM mhart/alpine-node:11.6.0
 LABEL author=me@gus.host
 
 RUN adduser -D -s /bin/bash -h /var/ws anon
