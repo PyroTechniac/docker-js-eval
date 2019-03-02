@@ -3,7 +3,7 @@
 const cp = require('child_process');
 const crypto = require('crypto');
 
-const CONTAINER = 'devsnek/js-eval';
+const CONTAINER = 'bert/js-eval';
 
 module.exports = (code, environment = 'node-cjs', {
   timeout,
