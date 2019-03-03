@@ -43,7 +43,7 @@ module.exports = (code, environment = 'node-cjs', {
 
     const proc = cp.spawn('docker', args);
     proc.stdin.write(code);
-    // proc.stdin.end();
+    proc.stdin.end();
 
     let data = '';
     proc.stdout.on('data', (chunk) => {
