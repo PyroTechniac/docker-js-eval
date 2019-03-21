@@ -16,6 +16,7 @@
   "dependencies": {},
   "scripts": {
     "build": "docker build -t botpyro/docker-js-eval .",
-    "test": "node test"
+    "test": "node test",
+    "install": "yarn build"
   }
 }
